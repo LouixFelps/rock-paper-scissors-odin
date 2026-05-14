@@ -1,16 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
 playConfirm() //Usar o prompt para verificar se o usuario quer iniciar o jogo
 
 function initializeGame(){
