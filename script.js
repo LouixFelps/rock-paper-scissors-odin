@@ -1,3 +1,5 @@
+
+
 playConfirm() //Usar o prompt para verificar se o usuario quer iniciar o jogo
 
 function playConfirm(x = ""){
@@ -9,6 +11,24 @@ function playConfirm(x = ""){
         alert("Click 'Play' if you want to start the game!")
     }
 }
+function verifyChoiceInput(userInput){
+
+    while(userInput != "Rock" && userInput != "Paper" && userInput != "Scissor"){
+        if(userInput === null){
+            break;
+        }
+
+        if (userInput === "rock" || userInput === "paper" || userInput === "scissor"){
+            userInput = userInput.replace(userInput[0], userInput[0].toUpperCase());
+        }
+        if(userInput != "Paper" && userInput != "Rock" && userInput != "Scissor"){
+            userInput = (prompt("Choose Between Rock, Paper or Scissors Only!", ""));
+        }
+    }
+
+    return userInput;
+
+}
 
 function startGame(){
     let playerResult;
@@ -17,12 +37,12 @@ function startGame(){
 
     while(playerScore < 3 && machineScore < 3){
     playerResult = prompt("Rock, Paper or Scissors?", "") //Perguntar se ele escolhe pedra, papel ou tesoura
-    
-    playerResult = playerResult.replace(playerResult[0], playerResult[0].toUpperCase())
-    
-    if(playerResult != "Paper" && playerResult != "Rock" && playerResult != "Scissor"){
-        playerResult = (prompt("Choose Between Rock, Paper or Scissors Only!", ""))
-    }
+
+    playerResult = verifyChoiceInput(playerResult)
+
+        if(playerResult === null){
+            break;
+        }
 
         let machineResult = generateMachineResult();
         alert(`You: ${playerResult} vs Machine: ${machineResult}`)
@@ -39,12 +59,16 @@ function startGame(){
             Machine Score: ${machineScore}`)
     }
 
-    if(playerScore === 3){
+    if(playerResult != null){
+        if(playerScore === 3){
         alert("Congratulations, you win the game!")
         playConfirm(" again")
-    }else if(machineScore === 3){
-        alert("Oh crap, you lose the game :(")
-        playConfirm(" again")
+        }else if(machineScore === 3){
+            alert("Oh crap, you lose the game :(")
+            playConfirm(" again")
+        }
+    }else{
+        alert("Click 'Play' if you want to start the game!")
     }
 
 }
