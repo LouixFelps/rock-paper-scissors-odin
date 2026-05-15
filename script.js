@@ -6,7 +6,7 @@ function playConfirm(x = ""){
     if(jogar){
     startGame();
     }else{
-        alert("Reload page if you want to play!")
+        alert("Click 'Play' if you want to start the game!")
     }
 }
 
