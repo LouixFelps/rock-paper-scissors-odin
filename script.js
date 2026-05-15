@@ -1,12 +1,4 @@
-// fazer o jogo ser uma melhor de 3 e retornar o vencedor no fim do round
-
-
-
-
-
 playConfirm() //Usar o prompt para verificar se o usuario quer iniciar o jogo
-
-
 
 function playConfirm(x = ""){
 
@@ -17,7 +9,6 @@ function playConfirm(x = ""){
         alert("Reload page if you want to play!")
     }
 }
-
 
 function startGame(){
     let playerResult;
@@ -58,8 +49,6 @@ function startGame(){
 
 }
 
-
-
 function generateMachineResult(){
     let result = Math.floor(Math.random() * 100) + 1 //Criar uma função onde pedra, papel e tesoura são geradas aleatoriamente e retornar uma dessas
     console.log(result)
@@ -91,28 +80,3 @@ function compareResult(userResult, machineResult){ //Comparar resultado da funç
         return false
     }
 }
-
-
-// function rockPaperScissor(playerResult){
-//     let userResult = playerResult.replace(playerResult[0], playerResult[0].toUpperCase())
-//     if(userResult != "Paper" && userResult != "Rock" && userResult != "Scissor"){
-//         return rockPaperScissor(prompt("Choose Between Rock, Paper or Scissors Only!", ""))
-//     }else{
-//         let machineResult = generateMachineResult();
-//         alert(`You: ${userResult} vs Machine: ${machineResult}`)
-//         let lastResult = compareResult(userResult, machineResult) //Caso usuario ganhe, retornar verdadeiro com uma mensagem de parabens e clicar para jogar novamente
-//         //Caso o usuario perca, retornar falso, e com uma mensagem para jogar novamente
-//         confirmVictory(lastResult)
-//     }
-// }
-
-
-// function confirmVictory(value){ //value will be a boolean 
-//     if(value === true){
-//         alert("You Win The Game!!!")
-//         playConfirm()
-//     }else if(value === false){
-//         alert("You Lost!");
-//         playConfirm()
-//     }
-// }
